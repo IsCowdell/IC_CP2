@@ -1,3 +1,19 @@
-#IC 1st types of lists
+#IC decorator function
 
-#update by ms larose 1
+def decorator(func):
+    def wrapper():
+        print("before calling the function")
+        func()
+        print("after calling the function")
+    return wrapper
+
+@decorator
+def greet():
+    print("hello,world")
+
+greet()
+@decorator
+def add():
+    print(1+1)
+
+add()
