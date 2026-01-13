@@ -113,3 +113,4 @@ def menu():
         compound_interest_calculator()
     else:
         print("invaild choice")
+menu()
