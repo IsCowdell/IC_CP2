@@ -76,7 +76,7 @@ def generate():
 
 def main(): 
 # show the user Type the number for the action you would like to perform
-    choice = input(f" type the number for the action you would like to perform \n 1 is for generate password \n 2 is to quit:1 ")
+    choice = input(f" type the number for the action you would like to perform \n 1 is for generate password \n 2 is to quit:").strip()
 #1. Generate Passwords
 #2. Exit
 # if 1 then:
