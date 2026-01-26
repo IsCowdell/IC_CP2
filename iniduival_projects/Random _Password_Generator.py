@@ -80,21 +80,24 @@ def main():
 #1. Generate Passwords
 #2. Exit
 # if 1 then:
-    if choice == "1":
-        generate()
+    end = False
+# msking a loop that repeats until it wants to end
+    if end == False:
+        if choice == "1":
+            generate()
 # generate password function() 
     #generate_password()
-    
 # else if 2 then
-    elif choice == "2":
-        
+        elif choice == "2":
+    #chaning variabe
+            end == True
 # exit function 
-        exit()
+            exit()
 # exit()
 # else:
-    else:
+        else:
 # show the user incorrect vaule try again
-        print(" Incorrect vaule try again")
+            print(" Incorrect vaule try again")
 
 
 #defining exit function 
