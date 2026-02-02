@@ -1,0 +1,18 @@
+#IC 1st reading file
+this is my file 
+
+notice is has many things on it 
+
+
+How do you open a file in your program?
+with open("read_file.txt", "r") as file:
+        content = file.read()
+        print(content)
+How do you alter text to work as data in a program?
+
+How do you keep your program from breaking if the file can't be found?
+you use try and except because it prints something else or using else
+What is a CSV file Download CSV file?
+csv comma seproated vaule. 
+How are they used in programming?
+How id reading a CSV different from reading a txt file?
