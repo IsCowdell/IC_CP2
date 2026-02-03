@@ -15,4 +15,6 @@ you use try and except because it prints something else or using else
 What is a CSV file Download CSV file?
 csv comma seproated vaule. 
 How are they used in programming?
+Importing and exporting date making it short
 How id reading a CSV different from reading a txt file?
+CSV have definded structure and requires special tools to read
