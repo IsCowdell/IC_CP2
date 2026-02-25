@@ -1,9 +1,11 @@
 #IC 1st personal library
-
-
+#import csv
+import csv
 
 # Creatiung ewmpty librabry list
 library = []
+#adding librabry onto csv
+
 # defining view functions
 def view():
     #giving them the option

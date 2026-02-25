@@ -1,6 +1,6 @@
 #IC 1st worder counter 
 import csv 
-#You can do 4 things\
+#You can do 4 things
 print("You can do about 4 things ")
 user_chice = input("1 is update document information\n 2 is to view document \n 3 is to add content to document\n 4 is exit the program:").strip()
 # 1 is upadte document infor 
