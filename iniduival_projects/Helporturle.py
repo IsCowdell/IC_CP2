@@ -1,9 +1,3 @@
-# Tell the user you have enter the traignle geneater
-#Enter recursion dept(1-5)
-# Intake how many depths the user wants and then take that and somehow put it into a recursion
-# to make it keep going and going 
-# Define the turtle drawing triangle
-# 
 
 
 
@@ -28,19 +22,13 @@ def drawTriangle(points,color,t):
     t.goto(points[2][0],points[2][1])
     t.goto(points[0][0],points[0][1])
     t.end_fill()
-
+#GETTING MID POINT VERY IMPOTANT
 def getMid(p1,p2):
     return ( (p1[0]+p2[0]) / 2, (p1[1] + p2[1]) / 2)
 
-def sierpinski(points,degree,t):
-    #need to make an if loop here chekcing th ecolor to print the triangle correctly
-    #also asking the user what color they want 
-    colors = ['yellow','blue','green','red','purple']
-    colormap = input("What color do you want to choose from(yellow','blue','green','red','purple): ")
-
-    if any(word in colors for word in colormap):
-
-        drawTriangle(points,colormap[degree],t)
+def sierpinski(points,degree,t,color):
+#mkain gusre the traingle hits all the correct points and is right overall
+        drawTriangle(points,color,t,degree)
         if degree > 0:
             sierpinski([points[0],
                             getMid(points[0], points[1]),
@@ -54,5 +42,4 @@ def sierpinski(points,degree,t):
                             getMid(points[2], points[1]),
                             getMid(points[0], points[2])],
                     degree-1, t)
-    else:
-        print("incorrect color go again")
+ 
