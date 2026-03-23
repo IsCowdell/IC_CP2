@@ -72,3 +72,18 @@ try:
         my_circle.display_details()
 except ValueError:
     print("Error: Please enter a valid number.")
+
+
+
+
+
+class Square:
+
+    def __init__(self,length,width):
+        self.length = length
+        self.width = width
+    
+
+    def get_arerectangled(self):
+        return self.length * self.width
+        
