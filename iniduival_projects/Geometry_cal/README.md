@@ -1,0 +1,1 @@
+This program is used to play around with gemoterucal shape like comparing, forming and storing them to make sure they get kept the only lirbary is math and it is used for calucating thing s like radius using the pi 
