@@ -136,10 +136,10 @@ def select_shape(shapes):
 
 
 def compare_shapes(shapes):
-    """Compare area and perimeter of two user-selected shapes."""
+    #Compare area and perimeter of two user-selected shapes.
     print("COMPARE SHAPES ")
     if len(shapes) < 2:
-        print("  Need at least 2 shapes to compare. Create more!")
+        print("  Need at least 2 shapes to compare")
         input("Press Enter to continue...")
         return
 
