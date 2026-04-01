@@ -103,11 +103,11 @@ class Student:
         return student
 
 
-# ══════════════════════════════════════════════════════════
+
 # GRADEBOOK CLASS
 # Manages the roster; owns all CSV read/write operations.
 # Composed of Student objects (composition pattern).
-# ══════════════════════════════════════════════════════════
+
 class GradeBook:
     def __init__(self):
         """Start with an empty roster. Call load_from_csv() to restore data."""
@@ -153,10 +153,10 @@ class GradeBook:
 
     @staticmethod
     def letter_from_avg(avg):
-        """
-        Static helper: convert any float average to a letter grade string.
-        Used for the class-wide average in the summary screen.
-        """
+   
+        #Static helper: convert any float average to a letter grade string.
+        #Used for the class-wide average in the summary screen.
+      
         if avg is None:     return "N/A"
         if avg >= 90:       return "A"
         elif avg >= 80:     return "B"
@@ -167,15 +167,15 @@ class GradeBook:
     # ── CSV persistence ────────────────────────────────────
 
     def save_to_csv(self):
-        """
-        Write every student and their grades to CSV_FILE.
+   
+        #Write every student and their grades to CSV_FILE.
 
-        CSV layout (one student per row):
-            name, student_id, grade1, grade2, ...
+        #CSV layout (one student per row):
+            #name, student_id, grade1, grade2, ...
 
-        Overwrites the file completely so it always mirrors memory.
-        Returns (True, success_message) or (False, error_message).
-        """
+        #Overwrites the file completely so it always mirrors memory.
+        #Returns (True, success_message) or (False, error_message).
+       
         try:
             with open(CSV_FILE, "w", newline="") as f:
                 writer = csv.writer(f)
@@ -228,21 +228,17 @@ class GradeBook:
 # ══════════════════════════════════════════════════════════
 
 def print_header(title):
-    """Print a consistent banner around any section title."""
-    bar = "=" * 62
-    print(f"\n{bar}")
     print(f"  {title}")
-    print(bar)
-
+ 
 def pause():
     """Hold the screen until the user presses Enter."""
     input("\n  Press Enter to continue...")
 
 def print_main_menu():
     """Render the main menu with all seven options."""
-    print_header("📚  SIMPLE GRADE BOOK  📚")
+    print_header("SIMPLE GRADE BOOK ")
     print("  Welcome to the Class Grade Book!\n")
-    print("  🎯 MAIN MENU:")
+    print(" MAIN MENU:")
     print("     [1]  Add New Student")
     print("     [2]  Add Grade to Student")
     print("     [3]  View Student Record")
@@ -260,7 +256,7 @@ def get_valid_choice():
         choice = input("\n  Enter your choice (1-7): ").strip()
         if choice in ("1", "2", "3", "4", "5", "6", "7"):
             return choice
-        print("  ❌  Invalid choice — please enter a number between 1 and 7.")
+        print(" Invalid choice — please enter a number between 1 and 7.")
 
 def get_valid_grade():
     """
@@ -273,9 +269,9 @@ def get_valid_grade():
             grade = float(raw)
             if 0 <= grade <= 100:
                 return grade
-            print("  ❌  Grade must be between 0 and 100.")
+            print("  Grade must be between 0 and 100.")
         except ValueError:
-            print("  ❌  Please enter a valid number (e.g. 85 or 91.5).")
+            print("  Please enter a valid number (e.g. 85 or 91.5).")
 
 
 # ══════════════════════════════════════════════════════════
@@ -288,25 +284,25 @@ def menu_add_student(gradebook):
     Option 1 — Collect name and ID, then add a new Student.
     Rejects empty fields and duplicate IDs.
     """
-    print_header("➕  ADD NEW STUDENT  ➕")
+    print_header("ADD NEW STUDENT")
 
     name = input("  Enter student name : ").strip()
     if not name:
-        print("  ❌  Name cannot be empty.")
+        print("  Name cannot be empty.")
         pause()
         return
 
     student_id = input("  Enter student ID   : ").strip()
     if not student_id:
-        print("  ❌  Student ID cannot be empty.")
+        print("  Student ID cannot be empty.")
         pause()
         return
 
     if gradebook.add_student(name, student_id):
-        print("\n  ✅  Student added successfully!")
+        print("\nStudent added successfully!")
         gradebook.find_by_id(student_id).display_info()
     else:
-        print(f"  ⚠️   ID '{student_id}' is already in the gradebook.")
+        print(f" ID '{student_id}' is already in the gradebook.")
 
     pause()
 
@@ -316,22 +312,22 @@ def menu_add_grade(gradebook):
     Option 2 — Look up a student by ID and append a validated grade.
     Lists the current roster first so the user can see available IDs.
     """
-    print_header("📝  ADD GRADE  📝")
+    print_header(" ADD GRADE")
 
     if not gradebook.students:
-        print("  ⚠️   No students yet — add a student first (option 1).")
+        print("    No students yet — add a student first (option 1).")
         pause()
         return
 
     print("  Current Students:")
     for s in gradebook.students:
-        print(f"     • {s.name:<22} (ID: {s.student_id})")
+        print(f"     • {s.name} (ID: {s.student_id})")
 
     student_id = input("\n  Enter student ID: ").strip()
     student    = gradebook.find_by_id(student_id)
 
     if not student:
-        print(f"  ❌  No student found with ID '{student_id}'.")
+        print(f"  No student found with ID '{student_id}'.")
         pause()
         return
 
@@ -341,7 +337,7 @@ def menu_add_grade(gradebook):
     avg    = student.calculate_average()
     letter = student.get_letter_grade()
 
-    print(f"\n  ✅  Grade added!")
+    print(f"\nGrade added!")
     print(f"     {student.name} now has {len(student.grades)} grade(s).")
     print(f"     Current average : {avg:.2f} ({letter})")
     pause()
@@ -352,10 +348,10 @@ def menu_view_student(gradebook):
     Option 3 — Display the full record for one student.
     Accepts either a student ID or a name as the search term.
     """
-    print_header("🔍  VIEW STUDENT RECORD  🔍")
+    print_header("  VIEW STUDENT RECORD  ")
 
     if not gradebook.students:
-        print("  ⚠️   No students in the gradebook yet.")
+        print("    No students in the gradebook yet.")
         pause()
         return
 
@@ -380,7 +376,7 @@ def menu_view_all(gradebook):
     print_header("👥  ALL STUDENTS  👥")
 
     if not gradebook.students:
-        print("  ⚠️   No students in the gradebook yet.")
+        print("  No students in the gradebook yet.")
         pause()
         return
 
@@ -411,10 +407,10 @@ def menu_class_summary(gradebook):
     Option 5 — Print every student's name, grades, and individual average,
     then show the overall class average computed from all recorded grades.
     """
-    print_header("📊  CLASS SUMMARY  📊")
+    print_header(" CLASS SUMMARY")
 
     if not gradebook.students:
-        print("  ⚠️   No students in the gradebook yet.")
+        print("   No students in the gradebook yet.")
         pause()
         return
 
@@ -436,7 +432,7 @@ def menu_class_summary(gradebook):
         cl = GradeBook.letter_from_avg(class_avg)
         print(f"\n  📌  Overall Class Average : {class_avg:.2f} ({cl})")
     else:
-        print("\n  📌  Overall Class Average : N/A (no grades entered yet)")
+        print("\n  Overall Class Average : N/A (no grades entered yet)")
 
     print(f"  📌  Total Students        : {len(gradebook.students)}")
     pause()
@@ -450,7 +446,7 @@ def menu_save_load(gradebook):
     Save  : Writes all students + grades, overwrites the file.
     Load  : Appends new students from the file (skips duplicates).
     """
-    print_header("💾  SAVE / LOAD  💾")
+    print_header("SAVE / LOAD")
     print("  [1]  Save gradebook to CSV")
     print("  [2]  Load gradebook from CSV")
     print("  [3]  Back to main menu")
@@ -459,22 +455,21 @@ def menu_save_load(gradebook):
         sub = input("\n  Enter your choice (1-3): ").strip()
         if sub in ("1", "2", "3"):
             break
-        print("  ❌  Please enter 1, 2, or 3.")
+        print("Please enter 1, 2, or 3.")
 
     if sub == "1":
-        # ── SAVE ──────────────────────────────────────────
+
         if not gradebook.students:
-            print("  ⚠️   Nothing to save — gradebook is empty.")
+            print(" Nothing to save — gradebook is empty.")
         else:
             ok, msg = gradebook.save_to_csv()
-            print(f"\n  {'✅' if ok else '❌'}  {msg}")
+            print(f"\n  { if ok else}  {msg}")
 
     elif sub == "2":
-        # ── LOAD ──────────────────────────────────────────
         # Warn the user if data already exists in the session
         if gradebook.students:
             confirm = input(
-                f"\n  ⚠️   Roster already has {len(gradebook.students)} student(s).\n"
+                f"\n Roster already has {len(gradebook.students)} student(s).\n"
                 "  Loading will ADD records from the CSV (duplicates skipped).\n"
                 "  Continue? (y/n): "
             ).strip().lower()
@@ -484,7 +479,7 @@ def menu_save_load(gradebook):
                 return
 
         ok, msg = gradebook.load_from_csv()
-        print(f"\n  {'✅' if ok else '❌'}  {msg}")
+        print(f"\n  { if ok else}  {msg}")
 
     # sub == "3" — fall through back to main menu
     pause()

@@ -1,4 +1,6 @@
+#IC 1st Class relationship 
 #Starting off the main menu 
+
 #print welcome to the class grade book 
 # what do you want to do 
 # 1 add new student 
@@ -12,16 +14,16 @@
 #if not keep bugging them until they make vaild choice 
 #
 
-# ============================================================
+
 # main.py
 # Entry point for the Class Grade Book application.
 #
-# This file is intentionally thin — all logic lives in helper.py.
-# Responsibilities here:
+# This file NEEDS TO be THIN remmeber that so like 100 lines or less 
+#What we need to do here:
 #   1. Import everything needed from helper
 #   2. Create the single GradeBook instance
 #   3. Run the menu loop until the user chooses Exit
-# ============================================================
+
 
 
 from helperfunctions import (
@@ -40,10 +42,10 @@ from helperfunctions import (
 
 
 def main():
-    """
-    Create the GradeBook and loop through the menu.
-    Exits cleanly when the user selects option 7.
-    """
+
+    #Create the GradeBook and loop through the menu.
+    #Exits cleanly when the user selects option 7.
+    
     gradebook = GradeBook()   # One shared gradebook for the whole session
 
 
@@ -64,7 +66,7 @@ def main():
 
 
         if choice == "7":
-            print("\n  👋  Goodbye! Don't forget to save before you go.\n")
+            print("\n Goodbye! Don't forget to save before you go.\n")
             break
 
 
