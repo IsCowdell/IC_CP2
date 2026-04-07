@@ -22,14 +22,18 @@ label.image = photo  # Keep a reference!
 label.pack()
 
 #Button 
-root.count - 0
+root.count = 0
 def add():
    root.count += 1
-   tk.Label(root,text=root.count).pack()
+   num["text"]= root.count
 
 
 Btn=tk.Button(root,text="ADD",command=add)
-btn.pack()
+Btn.pack()
+
+num = tk.Label(root,text = "0")
+num.pack()
+label.pack()
 
 
 root.mainloop()
