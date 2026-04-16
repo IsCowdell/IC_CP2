@@ -173,3 +173,8 @@ class Menu:
                 self.gradebook.save()
                 print("bye THANK YOU!!")
                 break
+ 
+# create the gradebook and menu then start the program
+gradebook = GradeBook()
+menu = Menu(gradebook)
+menu.run()
